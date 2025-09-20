@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Logged Out - Musical Time Machine{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <h1>🚪 You have been logged out</h1>
+    <p>You are now logged out of the app.</p>
+    
+    <p>
+      <a href="https://accounts.spotify.com/en/logout" target="_blank" class="btn">
+        Logout from Spotify (optional)
+      </a>
+    </p>
+
+    <p>
+      <a href="{{ url_for('auth.index') }}" class="btn-secondary">⬅️ Return to Home</a>
+    </p>
+  </div>
+{% endblock %}
