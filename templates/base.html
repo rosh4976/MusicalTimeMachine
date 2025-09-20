@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}Musical Time Machine{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="layout">
+
+    
+    <aside class="sidebar">
+      <h2>🎵 Menu</h2>
+      <ul>
+        <li><a href="{{ url_for('dashboard.dashboard') }}">⬅️ Back to Dashboard</a></li>
+        <li><a href="{{ url_for('auth.index') }}">🏠 Back to Index</a></li>
+        <li><a href="{{ url_for('auth.logout') }}">❌ Logout of App</a></li>
+      </ul>
+    </aside>
+
+
+    <main class="main-content">
+
+     
+      <header class="topbar">
+        <span>👤 {{ session.get('user_name', 'Guest') }}</span>
+        <img src="{{ url_for('static', filename='user-icon.png') }}" alt="User Icon" class="user-icon">
+      </header>
+
+      <section class="content">
+        {% block content %}{% endblock %}
+      </section>
+    </main>
+  </div>
+</body>
+</html>
