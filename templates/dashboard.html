@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Musical Time Machine{% endblock %}
+
+{% block sidebar %}
+  <h2>🎵 Menu</h2>
+  <a href="{{ url_for('dashboard.dashboard') }}">⬅️ Back to Dashboard</a>
+  <a href="{{ url_for('auth.index') }}">🏠 Back to Index</a>
+  <a href="{{ url_for('auth.logout') }}">🚪 Logout</a>
+{% endblock %}
+
+{% block content %}
+  <h1>🎶 Musical Time Machine</h1>
+  <p>Welcome, {{ user_name }}! Choose how you want to create your playlist:</p>
+
+  <div class="card-container">
+
+    <div class="card">
+      <h2>📅 Time Travel</h2>
+      <p>Travel back in time and listen to Billboard Hot 100 from any date.</p>
+      <a href="{{ url_for('time_travel.time_travel_page') }}"><button>Go</button></a>
+    </div>
+
+    <div class="card">
+      <h2>🎭 By Mood</h2>
+      <p>Pick your mood and get a custom playlist.</p>
+      <a href="{{ url_for('mood.mood_page') }}"><button>Go</button></a>
+    </div>
+
+    <div class="card">
+      <h2>🌍 By Language</h2>
+      <p>Create playlists in your favorite language.</p>
+      <a href="{{ url_for('language.language_page') }}"><button>Go</button></a>
+    </div>
+
+    <div class="card">
+      <h2>🎶 By Genre</h2>
+      <p>Choose a music genre to explore.</p>
+      <a href="{{ url_for('genre.genre_page') }}"><button>Go</button></a>
+    </div>
+
+    <div class="card">
+      <h2>🔄 Recently Played</h2>
+      <p>Generate a playlist based on your recent listening history.</p>
+      <a href="{{ url_for('history.history_page') }}"><button>Go</button></a>
+    </div>
+
+  </div>
+{% endblock %}
