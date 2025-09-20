@@ -1,7 +1,7 @@
 
-# MusicalTimeMachine
+Welcome to The Musical Time Machine!
 
-# 🎶 Musical Time Machine
+Creating customised Spotify Playlist using the Musical Time Machine
 
 A Flask-based mini project that integrates with the Spotify API to generate custom playlists.  
 Users can log in with their Spotify account and create playlists based on:
@@ -34,6 +34,7 @@ Users can log in with their Spotify account and create playlists based on:
 ## ⚙️ Setup Instructions
 
 1. Clone this repository:
-   ```bash
-   git clone https://github.com/YOUR-USERNAME/musical-time-machine.git
-   cd musical-time-machine
+2. Install the required packages
+3.  Run the program
+
+  ENJOY! :)
