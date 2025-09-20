@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Time Travel - Musical Time Machine{% endblock %}
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <title>Musical Time Machine</title>
+</head>
+<body>
+  <center>
+    {% if request.args.get('logout') %}
+      <p style="color: red; font-weight: bold;">You have been logged out.</p>
+    {% endif %}
+
+    <h1>🎵 Welcome to Musical Time Machine</h1>
+    <a href="{{ url_for('auth.login') }}"><button class="btn">Login with Spotify</button></a>
+  </center>
+</body>
+</html>
+{% endblock %}
