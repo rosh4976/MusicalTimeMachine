@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Mood Playlist - Musical Time Machine{% endblock %}
+
+{% block content %}
+  <div class="content-box">
+    <h1>🎭 Mood Playlist</h1>
+    <p>Select your mood to generate a playlist:</p>
+
+    <form action="{{ url_for('mood.mood') }}" method="POST" class="form-box">
+      <div class="form-group">
+        <select name="mood" required>
+          <option value="happy">😊 Happy</option>
+          <option value="sad">😢 Sad</option>
+          <option value="chill">🌙 Chill</option>
+          <option value="party">🎉 Party</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn">🎶 Generate Playlist</button>
+    </form>
+  </div>
+{% endblock %}
