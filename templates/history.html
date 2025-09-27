@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Recently Played - Musical Time Machine{% endblock %}
+
+{% block content %}
+  <div class="content-box">
+    <h1>🔄 Recently Played</h1>
+    <p>Generate a playlist from your recent Spotify listening history:</p>
+
+    <form action="{{ url_for('history.history') }}" method="POST" class="form-box">
+      <button type="submit" class="btn">🎶 Generate Playlist</button>
+    </form>
+  </div>
+{% endblock %}
