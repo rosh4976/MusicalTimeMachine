@@ -8,7 +8,7 @@
 <body>
   <div class="layout">
 
-    
+    <!-- Sidebar -->
     <aside class="sidebar">
       <h2>🎵 Menu</h2>
       <ul>
@@ -18,19 +18,31 @@
       </ul>
     </aside>
 
-
+    <!-- Main Content -->
     <main class="main-content">
 
-     
+      <!-- Topbar -->
       <header class="topbar">
+        <button id="theme-toggle" class="btn">🌙</button>
+
         <span>👤 {{ session.get('user_name', 'Guest') }}</span>
         <img src="{{ url_for('static', filename='user-icon.png') }}" alt="User Icon" class="user-icon">
       </header>
 
+      <!-- Page Content -->
       <section class="content">
         {% block content %}{% endblock %}
       </section>
     </main>
   </div>
+      <script>
+    document.addEventListener('play', function(e){
+      var audios = document.getElementsByTagName('audio');
+      for(var i=0;i<audios.length;i++){
+        if(audios[i] !== e.target) audios[i].pause();
+      }
+    }, true);
+    </Script>
+    
 </body>
 </html>
