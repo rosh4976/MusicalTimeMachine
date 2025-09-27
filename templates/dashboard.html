@@ -7,7 +7,13 @@
   <a href="{{ url_for('dashboard.dashboard') }}">⬅️ Back to Dashboard</a>
   <a href="{{ url_for('auth.index') }}">🏠 Back to Index</a>
   <a href="{{ url_for('auth.logout') }}">🚪 Logout</a>
+
+  <p>You listened to {{ stats.songs_this_week }} songs this week</p>
+  <p>Your top artist: {{ stats.top_artist }}</p>
+
+
 {% endblock %}
+
 
 {% block content %}
   <h1>🎶 Musical Time Machine</h1>
@@ -44,6 +50,17 @@
       <p>Generate a playlist based on your recent listening history.</p>
       <a href="{{ url_for('history.history_page') }}"><button>Go</button></a>
     </div>
+
+      <div class="card">
+      <h2>🔍 Custom Search</h2>
+      <a href="{{ url_for('search.search_page') }}"><button>Go</button></a>
+      </div>
+
+
+         <div class="card">
+      <h2>🎤 Lyrics Finder</h2>
+      <a href="{{ url_for('lyrics.lyrics_page') }}"><button>Go</button></a>
+      </div>
 
   </div>
 {% endblock %}
