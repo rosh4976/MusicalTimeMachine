@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Genre Playlist - Musical Time Machine{% endblock %}
+
+{% block content %}
+  <div class="content-box">
+    <h1>🎶 Genre Playlist</h1>
+    <p>Select a genre to explore:</p>
+
+    <form action="{{ url_for('genre.genre') }}" method="POST" class="form-box">
+      <div class="form-group">
+        <select name="genre" required>
+          <option value="pop">Pop</option>
+          <option value="rock">Rock</option>
+          <option value="hip hop">Hip Hop</option>
+          <option value="jazz">Jazz</option>
+          <option value="classical">Classical</option>
+          <option value="edm">EDM</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn">🎶 Generate Playlist</button>
+    </form>
+  </div>
+{% endblock %}
