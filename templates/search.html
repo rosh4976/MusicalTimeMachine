@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Custom Search</h1>
+<form method="POST" action="{{ url_for('search.search') }}">
+  <input type="text" name="query" placeholder="Artist, song or album" required>
+  <button type="submit" class="btn">Search</button>
+</form>
+{% endblock %}
