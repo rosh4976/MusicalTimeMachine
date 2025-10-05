@@ -5,19 +5,20 @@
 {% block content %}
   <div class="content-box">
     <h1>📅 Time Travel Playlist</h1>
-    <p>Select a date and language to generate your playlist:</p>
+    <p>Select a year, language, and number of songs to generate your playlist:</p>
 
     <form action="{{ url_for('time_travel.time_travel') }}" method="POST" class="form-box">
-     
-      <div class="form-group">
-        <label for="date">Choose a Date (yyyy-mm-dd):</label><br>
-        <input type="date" id="date" name="date" required>
-      </div>
-
    
       <div class="form-group">
-        <label for="language">Choose Language:</label><br>
-        <select id="language" name="language" required>
+        <label for="year">Enter Year:</label>
+        <input type="number" name="year" min="1950" max="2025" required>
+      </div>
+
+      
+      <div class="form-group">
+        <label for="language">Choose Language:</label>
+        <select id="language" name="language" required onchange="toggleSource()">
+          <option value="select">select</option>
           <option value="english">English</option>
           <option value="hindi">Hindi</option>
           <option value="tamil">Tamil</option>
@@ -30,7 +31,35 @@
         </select>
       </div>
 
+ 
+      <div class="form-group" id="source-group" style="display:none;">
+        <label for="source">Source (English only):</label>
+        <select id="source" name="source">
+          <option value="spotify">Spotify Data</option>
+          <option value="billboard">Billboard Hot 100</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="song_count">Number of Songs:</label><br>
+        <input type="range" id="song_count" name="song_count" min="10" max="50" value="30" 
+               oninput="countOutput.value = this.value">
+        <output id="countOutput">30</output>
+      </div>
+
       <button type="submit" class="btn">🎶 Generate Playlist</button>
     </form>
   </div>
+
+  <script>
+    function toggleSource() {
+      const lang = document.getElementById("language").value;
+      const sourceGroup = document.getElementById("source-group");
+      if (lang === "english") {
+        sourceGroup.style.display = "block";
+      } else {
+        sourceGroup.style.display = "none";
+      }
+    }
+  </script>
 {% endblock %}
