@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Lyrics Search{% endblock %}
+
+{% block content %}
+  <h2>📜 Find Lyrics</h2>
+  <form method="POST" action="{{ url_for('lyrics.lyrics') }}">
+    <input type="text" name="artist" placeholder="Artist" required>
+    <input type="text" name="song" placeholder="Song" required>
+    <button type="submit">Get Lyrics</button>
+  </form>
+{% endblock %}
