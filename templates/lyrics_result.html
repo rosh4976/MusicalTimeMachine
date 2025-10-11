@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block title %}Lyrics Result{% endblock %}
+
+{% block content %}
+  <h2>Lyrics for {{ song }} by {{ artist }}</h2>
+  <pre>{{ lyrics }}</pre>
+  <a href="{{ url_for('lyrics.lyrics_page') }}">🔙 Back</a>
+{% endblock %}
