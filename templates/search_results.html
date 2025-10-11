@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>🎧 Results for "{{ query }}"</h1>
+
+<form method="POST" action="{{ url_for('search.save_search') }}">
+  <div class="form-group">
+    <input type="text" name="playlist_name" placeholder="Playlist name" value="Search: {{ query }}">
+    <input type="text" name="playlist_desc" placeholder="Description (optional)">
+  </div>
+
+  <div class="card-container">
+    {% for t in items %}
+    <div class="card">
+      <h3>{{ t.name }}</h3>
+      <p><strong>{{ t.artists }}</strong></p>
+      <label>
+        <input type="checkbox" name="uris" value="{{ t.uri }}"> Add to playlist
+      </label>
+
+      {% if t.preview_url %}
+      <div class="audio-container">
+        <audio controls src="{{ t.preview_url }}"></audio>
+      </div>
+      {% else %}
+      <p><em>No preview available</em></p>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+
+  <center>
+    <button type="submit" class="btn">💾 Save Selected Tracks</button>
+  </center>
+</form>
+{% endblock %}
